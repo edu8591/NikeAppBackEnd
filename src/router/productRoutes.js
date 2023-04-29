@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
+const { getAllProducts, getProductById } = require("../databse/products");
 // Get all products
-router.get("/", (req, res) => {
-  res.status(200).send({ title: "get all Products" });
+router.get("/", async (req, res) => {
+  const products = await getAllProducts();
+  res.status(200).send(products);
 });
 
 // Get one product by id
