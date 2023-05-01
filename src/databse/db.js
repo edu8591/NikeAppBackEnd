@@ -7,4 +7,5 @@ const client = new MongoClient(uri);
 
 const db = client.db("test");
 const products = db.collection("products");
-module.exports = { products };
+const orders = db.collection("orders");
+module.exports = { products, orders };
